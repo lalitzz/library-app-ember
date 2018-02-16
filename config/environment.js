@@ -6,10 +6,27 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    // ...
+    firebase: {
+      apiKey: 'AIzaSyC4XjzvkHkywB9qoU9KXBhGZpuUJKBCJfw',
+      authDomain: 'emberproject-12766.firebaseapp.com',
+      databaseURL: 'https://emberproject-12766.firebaseio.com/',
+      storageBucket: 'emberproject-12766.appspot.com',
+    },
+
+
+    // if using ember-cli-content-security-policy
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
+        
       },
       EXTEND_PROTOTYPES: {  
         // Prevent Ember Data from overriding Date.parse.

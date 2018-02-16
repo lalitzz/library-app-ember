@@ -1,15 +1,25 @@
+<h1>Contact Page</h1>
+<p class="well well-sm">
+If you have any question or feedback please leave a message with your email address.
+</p>
 <div class="container">
-	
-	  <div class="form-group">
-	    <label for="email">Email address:</label>
-	    <input type="email" class="form-control" id="email">
-	  </div>
-	  <div class="form-group">
-	    <label for="pwd">Password:</label>
-	    <input type="password" class="form-control" id="pwd">
-	  </div>
-	  <div class="checkbox">
-	    <label><input type="checkbox"> Remember me</label>
-	  </div>
-	  <button type="submit" class="btn btn-default">Submit</button>
+	<div class="row">
+       <div class="col-xs-6">
+		  <div class="form-group">
+			    <label for="email">Your Email Address:</label>
+			    {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
+		  </div>
+
+		  <div class="form-group">
+			    <label for="pwd">Your Message:</label>
+			    {{textarea rows="5" value=textMessage placeholder="Your message. (At least 5 characters.)" class="form-control"}}
+		  </div>
+		  <div class="form-group">
+		  		<button {{action 'sendMail' }} disabled={{isDisabled}} type="submit" class="btn btn-success">Send</button>
+		  </div>
+	   </div>
+	</div>
+	{{#if responseMessage}}
+	    <div class="alert alert-success">{{responseMessage}}</div>
+	{{/if}}
 </div>
