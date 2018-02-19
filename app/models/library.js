@@ -1,5 +1,6 @@
 import DS from 'ember-data';
 import { notEmpty } from '@ember/object/computed';
+import Faker from 'faker';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
@@ -8,5 +9,18 @@ export default DS.Model.extend({
 
   books: DS.hasMany('book'),
 
-  isValid: notEmpty('name')
+  isValid: notEmpty('name'),
+
+  randomize() {
+  	this.set('name', Faker.company.companyName() + ' Library ');
+  	this.set('name', this._fullAddress());
+  	this.set('phone', Faker.phone.phoneNumber());
+
+  	return this;
+  },
+
+  _fullAddress(){
+  	return `${Faker.address.streetAddress()}, ${Faker.address.city()}`;
+  }
+
 });
