@@ -1,18 +1,23 @@
 <h1>Invitations</h1>
-
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>E-mail</th>
-    </tr>
-  </thead>
-  <tbody>
-  {{#each model as |invitation|}}
-    <tr>
-      <th>{{invitation.id}}</th>
-      <td>{{invitation.email}}</td>
-    </tr>
-  {{/each}}
-  </tbody>
-  </table>
+<div class="row">
+  <div class="col-xs-8">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>E-mail</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each model as |invitation|}}
+        <tr>
+          <td>{{invitation.id}}</td>
+          <td>{{invitation.email}}</td>
+          <td><button class="btn btn-danger btn-xs" {{action 'deleteInvitation' invitation}}>Delete</button></td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
