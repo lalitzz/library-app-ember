@@ -1,5 +1,5 @@
-import Controller from '@ember/controller';
 import { all } from 'rsvp';
+import Controller from '@ember/controller';
 import Faker from 'faker';
 
 export default Controller.extend({
@@ -7,7 +7,7 @@ export default Controller.extend({
 		generateLibraries(volume){
 			this.set('generateLibrariesInProgress', true);
 
-			const counter = pareInt(volume);
+			const counter = parseInt(volume);
 			let savedLibraries = [];
 
 			for(let i=0; i<counter; i++){
@@ -59,7 +59,8 @@ export default Controller.extend({
 							this.set('deleteBooksInProgress', false);
 						});
 				});
-		},
+		}
+	},
 
 		_saveRandomLibrary() {
 			return this.store.createRecord('library').randomize().save();
@@ -100,5 +101,4 @@ export default Controller.extend({
 			return all(recordsAreDestroying);
 		}
 
-	}
 });

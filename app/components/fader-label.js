@@ -6,7 +6,7 @@ export default Component.extend({
 	tagName: 'span',
 
 	className: ['label label-success label-fade'],
-	classNameBinding: ['isShowing: label-show'],
+	classNameBindings: ['isShowing:label-show'],
 
 	isShowing: false,
 
