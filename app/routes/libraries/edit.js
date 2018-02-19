@@ -10,6 +10,17 @@ export default Route.extend({
 			library.save().then(() => this.transitionTo('libraries'));
 		},
 
+		setupController(controller, model){
+			this._super(controller, model);
+
+			controller.set('title', 'Edit Library');
+			controller.set('buttonLabel', 'Save Changes');
+		},
+
+		renderTemplate(){
+			this.render('libraries/form');
+		},
+
 		willTransition(transition){
 			let model = this.controller.get('model');
 			if(model.get('hasDirtyAttributes')){
